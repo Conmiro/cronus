@@ -1,0 +1,51 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}LiveChat{% endblock %}
+
+
+{% block content %}
+<div class = "section">
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-md-4">
+                <div class = "panel panel-default">
+                    <div class = "panel-body">
+                        <form id = "chatForm">
+                            <div class="form-group">
+                                <label for="usernameInput">Username</label>
+                                <input type="text" name = "username" class="form-control" id="usernameInput" aria-describedby="username" placeholder="Enter username" required>
+                                <small id="emailHelp" class="form-text text-muted">Enter alias to use as sender.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="messageInput">Message</label>
+                                <textarea name = "message" id = "messageInput" class="form-control" required ></textarea>
+                            </div>
+                            <button type = "button" id = "submitButton" class="btn btn-primary">Send</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class = "col-md-8">
+                <div class = "panel panel-default">
+                    <div id = "chatBody" class = "panel-body">
+                        Loading...
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+{% block javascript %}
+<script type="text/javascript" src={% static 'js/django_csrf_extraction.js' %}></script>
+<script type="text/javascript" src={% static 'js/webchat/index.js' %}></script>
+{% endblock %}
