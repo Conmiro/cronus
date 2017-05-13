@@ -1,0 +1,53 @@
+<div class="navbar navbar-default navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{% url 'index' %}" aria-label="a home button that says Card Crab">
+                        <span>Cronus</span>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li id = "home_label">
+                            <a href="{% url 'index' %}">Home</a>
+                        </li>
+
+
+                        <li class = "dropdown">
+                            <a class = "dropdown-toggle" data-toggle="dropdown" href="#">SubMenu<span class = "caret"></span></a>
+                            <ul class = "dropdown-menu">
+                                <li><a href="#">Option 1</a></li>
+                                <li><a href="#" onclick="open_sell_card()">Option 2</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                    <div class="nav navbar-nav navbar-group navbar-right">
+
+
+                        <div class="navbar-form navbar-right" role="search">
+
+
+                        </div>
+                    </div>
+                    <!-- login/register links -->
+
+                    <ul class="nav navbar-nav navbar-group navbar-right">
+
+                        <li >
+                            <a href="#" onclick="">Register</a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="">Login</a>
+                        </li>
+
+
+                </ul>
+            </div>
+        </div>
