@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'webchat.apps.WebchatConfig'
+    'webchat.apps.WebchatConfig',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -60,6 +61,14 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     'var/www/static',
 ]
+
+# this too
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "ROUTING": "cronus.routing.channel_routing",
+    },
+}
 
 TEMPLATES = [
     {

@@ -18,6 +18,7 @@ $(function() {
     }
     var csrftoken = getCookie('csrftoken');
 
+
     /*
     The functions below will create a header with csrftoken
     */

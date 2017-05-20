@@ -1,3 +1,4 @@
+{% load static %}
 
 
 {% for msg in convo %}
@@ -6,3 +7,7 @@
 <br>
 
 {% endfor %}
+
+{% block javascript %}
+<script type="text/javascript" src={% static 'js/webchat/conversation.js' %}></script>
+{% endblock %}
