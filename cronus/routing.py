@@ -1,8 +1,7 @@
-from channels.routing import route
-from webchat.consumers import ws_add, ws_message, ws_disconnect
+from channels.routing import route, route_class
+
+import webchat.consumers as consumers
 
 channel_routing = [
-    route("websocket.connect", ws_add),
-    route("websocket.receive", ws_message),
-    route("websocket.disconnect", ws_disconnect),
+    route_class(consumers.ChatServer, path=r"^/chat/")
 ]

@@ -7,12 +7,15 @@ $( document ).ready(function() {
     socket = new WebSocket("ws://" + window.location.host + "/chat/");
     socket.onmessage = function(e) {
 
-        chatBody.append(e.data + " <br> ")
-        console.log(e.data);
+
+        var data = JSON.parse(e.data);
+        chatBody.append("["+data['username']+"] " + data['message']+ '<br>')
+
 
     }
     socket.onopen = function() {
-        socket.send("[Server] Someone has joined.");
+        console.log('Socket opened!')
+
     }
 
     // Call onopen directly if socket is already open
@@ -39,7 +42,13 @@ function sendMessage() {
         var message = $('#messageInput').val()
         $('#messageInput').val('')
 
-        var content = "["+userName+"] " + message
+        var data = { }
+        data['message'] = message
+        data['username'] = userName
+
+        var content = JSON.stringify(data)
+        console.log(content)
+
         socket.send(content)
 
 }
