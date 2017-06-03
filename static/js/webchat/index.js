@@ -4,10 +4,10 @@ var chatBody
 $( document ).ready(function() {
 
     chatBody = $('#chatBody')
-    socket = new WebSocket("ws://" + window.location.host + "/chat/");
+    socket = new WebSocket("ws://" + window.location.host + "/webchat/");
     socket.onmessage = function(e) {
 
-
+        console.log(e.data)
         var data = JSON.parse(e.data);
         chatBody.append("["+data['username']+"] " + data['message']+ '<br>')
 
@@ -47,7 +47,7 @@ function sendMessage() {
         data['username'] = userName
 
         var content = JSON.stringify(data)
-        console.log(content)
+        //console.log(content)
 
         socket.send(content)
 
