@@ -1,6 +1,14 @@
 var socket
 var chatBody
 
+function stripHTML(dirtyString) {
+  var container = document.createElement('div');
+  var text = document.createTextNode(dirtyString);
+  container.appendChild(text);
+  return container.innerHTML; // innerHTML will be a xss safe string
+}
+
+
 $( document ).ready(function() {
 
     chatBody = $('#chatBody')
@@ -9,7 +17,7 @@ $( document ).ready(function() {
 
         console.log(e.data)
         var data = JSON.parse(e.data);
-        chatBody.append("["+data['username']+"] " + data['message']+ '<br>', 'text')
+        chatBody.append("["+data['username']+"] " + stripHTML(data['message'])+ '<br>')
 
 
     }
