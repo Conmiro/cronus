@@ -9,7 +9,7 @@ $( document ).ready(function() {
 
         console.log(e.data)
         var data = JSON.parse(e.data);
-        chatBody.append("["+data['username']+"] " + data['message']+ '<br>')
+        chatBody.append("["+data['username']+"] " + data['message']+ '<br>', 'text')
 
 
     }
